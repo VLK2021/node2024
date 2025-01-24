@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9846b7a-21c6-4fc2-9cdc-b32c69317858" name="Changes" comment="commit" />
+    <list default="true" id="a9846b7a-21c6-4fc2-9cdc-b32c69317858" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,24 +28,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "VLK2021"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VLK2021&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="8a6e3ebe-e7f5-4745-9191-69db6b14fde5" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VLK2021/node2024.git",
-    "accountId": "8a6e3ebe-e7f5-4745-9191-69db6b14fde5"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VLK2021/node2024.git&quot;,
+    &quot;accountId&quot;: &quot;8a6e3ebe-e7f5-4745-9191-69db6b14fde5&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2rzwyWuwKC9XCDww04ZAlxUqgLc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,8 +59,9 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "javascript.nodejs.core.library.configured.version": "18.19.0",
-    "javascript.nodejs.core.library.typings.version": "18.19.71",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.11.0",
+    "javascript.nodejs.core.library.typings.version": "20.11.30",
     "last_opened_file_path": "E:/EasyPlatform",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,7 +77,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
       </set>
     </attachedChunks>
   </component>
@@ -86,6 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1737575470625</updated>
       <workItem from="1737575471467" duration="2389000" />
+      <workItem from="1737754865552" duration="1040000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
