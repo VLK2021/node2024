@@ -1,0 +1,180 @@
+Index: index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const http = require('node:http');\nconst path = require('node:path');\nconst rl = require('node:readline/promises');\nconst fscl = require('node:fs');\nconst fs = require('node:fs/promises');\nconst os = require('node:os');\n// const {emitter} = require('./emiter');\n\n\n\nconst foo = async () => {\n//HTTP\n// const server = http.createServer((req, res) => {\n//     res.writeHead(200, {'Content-Type': 'text/plain'});\n//     res.end('Hello World\\n2222');\n// })\n// server.listen(3000);\n\n//Path\n// console.log(path.basename(__filename));\n// console.log(path.dirname(__filename));\n// console.log(path.extname(__filename));\n// console.log(path.parse(__filename));\n// console.log(path.normalize('/home/maksym///////\\/////WORK////\\///Lessons/jan-2024-nodejs/index.js'));\n// console.log(path.isAbsolute('/home/maksym/WORK/Lessons/jan-2024-nodejs/index.js'));\n// console.log(path.isAbsolute('./home/maksym/WORK/Lessons/jan-2024-nodejs/index.js'));\n\n// Readline\n//     const rlInstance = rl.createInterface({\n//         input: process.stdin,\n//         output: process.stdout\n//     });\n//     const name = await rlInstance.question('Enter your name: ');\n//     console.log(`Hello, ${name}!`);\n\n    // FS\n    // const pathToFile = path.join(__dirname, 'some_dir', 'test.txt');\n    // await fs.writeFile(pathToFile, 'Hello, world!')\n    // const data = await fs.readFile(pathToFile, 'utf-8')\n    // console.log(data);\n    // await fs.appendFile(pathToFile, '\\n Hello, world again!')\n    //\n    // await fs.mkdir(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2'), {recursive: true})\n    // await fs.rmdir(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2'))\n\n    // await fs.writeFile(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2', 'test.txt'), 'Hello, world!')\n    // await fs.rm(path.join(__dirname, 'some_dir', 'new_dir'), {recursive: true})\n    // await fs.unlink(path.join(__dirname, 'test.txt'))\n    // await fs.rename(path.join(__dirname, 'some_dir', 'test.txt'), path.join(__dirname, 'test222.txt'))\n    // await fs.copyFile(path.join(__dirname, 'some_dir', 'test222.txt'), path.join(__dirname, '111.txt'))\n    // const stat = await fs.stat(path.join(__dirname, 'some_dir', 'test222.txt'))\n    // console.log(stat.isDirectory())\n    // console.log(stat.isFile())\n    //\n    // // FS stream\n    // const readStream = fscl.createReadStream(path.join(__dirname, 'big_file.pdf'))\n    // const writeStream = fscl.createWriteStream(path.join(__dirname, 'big_file_copy.pdf'))\n    //\n    // readStream.on('data', (chunk) => {\n    //     console.log(chunk);\n    //     writeStream.write(chunk)\n    // });\n    // readStream.pipe(writeStream)\n\n    // OS\n    // console.log(os.arch());\n    // console.log(os.cpus());\n    // console.log(os.hostname());\n    // console.log(os.homedir());\n    // console.log(os.freemem() / 1024 / 1024 / 1024);\n    // console.log(os.totalmem() / 1024 / 1024 / 1024);\n\n    // emitter.emit('test2', 'qwe', 'asd', 222)\n    // emitter.emit('test2', 'SSS', 'WWWWW', 111)\n    // emitter.emit('create_user', {name: 'maks', age: 28})\n    // emitter.emit('create_user', {name: 'Dima', age: 28})\n\n\n}\n\nvoid foo()\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.js b/index.js
+--- a/index.js	(revision cd92ecd070b39094788fc3e017e8394776299f61)
++++ b/index.js	(date 1737758678020)
+@@ -1,82 +1,0 @@
+-const http = require('node:http');
+-const path = require('node:path');
+-const rl = require('node:readline/promises');
+-const fscl = require('node:fs');
+-const fs = require('node:fs/promises');
+-const os = require('node:os');
+-// const {emitter} = require('./emiter');
+-
+-
+-
+-const foo = async () => {
+-//HTTP
+-// const server = http.createServer((req, res) => {
+-//     res.writeHead(200, {'Content-Type': 'text/plain'});
+-//     res.end('Hello World\n2222');
+-// })
+-// server.listen(3000);
+-
+-//Path
+-// console.log(path.basename(__filename));
+-// console.log(path.dirname(__filename));
+-// console.log(path.extname(__filename));
+-// console.log(path.parse(__filename));
+-// console.log(path.normalize('/home/maksym///////\/////WORK////\///Lessons/jan-2024-nodejs/index.js'));
+-// console.log(path.isAbsolute('/home/maksym/WORK/Lessons/jan-2024-nodejs/index.js'));
+-// console.log(path.isAbsolute('./home/maksym/WORK/Lessons/jan-2024-nodejs/index.js'));
+-
+-// Readline
+-//     const rlInstance = rl.createInterface({
+-//         input: process.stdin,
+-//         output: process.stdout
+-//     });
+-//     const name = await rlInstance.question('Enter your name: ');
+-//     console.log(`Hello, ${name}!`);
+-
+-    // FS
+-    // const pathToFile = path.join(__dirname, 'some_dir', 'test.txt');
+-    // await fs.writeFile(pathToFile, 'Hello, world!')
+-    // const data = await fs.readFile(pathToFile, 'utf-8')
+-    // console.log(data);
+-    // await fs.appendFile(pathToFile, '\n Hello, world again!')
+-    //
+-    // await fs.mkdir(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2'), {recursive: true})
+-    // await fs.rmdir(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2'))
+-
+-    // await fs.writeFile(path.join(__dirname, 'some_dir', 'new_dir', 'new_dir2', 'test.txt'), 'Hello, world!')
+-    // await fs.rm(path.join(__dirname, 'some_dir', 'new_dir'), {recursive: true})
+-    // await fs.unlink(path.join(__dirname, 'test.txt'))
+-    // await fs.rename(path.join(__dirname, 'some_dir', 'test.txt'), path.join(__dirname, 'test222.txt'))
+-    // await fs.copyFile(path.join(__dirname, 'some_dir', 'test222.txt'), path.join(__dirname, '111.txt'))
+-    // const stat = await fs.stat(path.join(__dirname, 'some_dir', 'test222.txt'))
+-    // console.log(stat.isDirectory())
+-    // console.log(stat.isFile())
+-    //
+-    // // FS stream
+-    // const readStream = fscl.createReadStream(path.join(__dirname, 'big_file.pdf'))
+-    // const writeStream = fscl.createWriteStream(path.join(__dirname, 'big_file_copy.pdf'))
+-    //
+-    // readStream.on('data', (chunk) => {
+-    //     console.log(chunk);
+-    //     writeStream.write(chunk)
+-    // });
+-    // readStream.pipe(writeStream)
+-
+-    // OS
+-    // console.log(os.arch());
+-    // console.log(os.cpus());
+-    // console.log(os.hostname());
+-    // console.log(os.homedir());
+-    // console.log(os.freemem() / 1024 / 1024 / 1024);
+-    // console.log(os.totalmem() / 1024 / 1024 / 1024);
+-
+-    // emitter.emit('test2', 'qwe', 'asd', 222)
+-    // emitter.emit('test2', 'SSS', 'WWWWW', 111)
+-    // emitter.emit('create_user', {name: 'maks', age: 28})
+-    // emitter.emit('create_user', {name: 'Dima', age: 28})
+-
+-
+-}
+-
+-void foo()
+-
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a9846b7a-21c6-4fc2-9cdc-b32c69317858\" name=\"Changes\" comment=\"commit\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/index.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"lesson-1\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;VLK2021&quot;\n  }\n}</component>\n  <component name=\"GithubDefaultAccount\">\n    <option name=\"defaultAccountId\" value=\"8a6e3ebe-e7f5-4745-9191-69db6b14fde5\" />\n  </component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/VLK2021/node2024.git&quot;,\n    &quot;accountId&quot;: &quot;8a6e3ebe-e7f5-4745-9191-69db6b14fde5&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2rzwyWuwKC9XCDww04ZAlxUqgLc\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"git-widget-placeholder\": \"master\",\n    \"javascript.nodejs.core.library.configured.version\": \"20.11.0\",\n    \"javascript.nodejs.core.library.typings.version\": \"20.11.30\",\n    \"last_opened_file_path\": \"E:/EasyPlatform\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_interpreter_path\": \"node\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"settings.editor.selected.configurable\": \"configurable.group.appearance\",\n    \"ts.external.directory.path\": \"C:\\\\Program Files\\\\JetBrains\\\\WebStorm 2024.1.5\\\\plugins\\\\javascript-plugin\\\\jsLanguageServicesImpl\\\\external\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"a9846b7a-21c6-4fc2-9cdc-b32c69317858\" name=\"Changes\" comment=\"\" />\n      <created>1737575470625</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1737575470625</updated>\n      <workItem from=\"1737575471467\" duration=\"2389000\" />\n      <workItem from=\"1737754865552\" duration=\"1040000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1737577464993</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1737577464993</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"commit\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"commit\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cd92ecd070b39094788fc3e017e8394776299f61)
++++ b/.idea/workspace.xml	(date 1737811348170)
+@@ -23,7 +23,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="lesson-1" />
++        <entry key="$PROJECT_DIR$" value="lesson-2" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -34,9 +34,6 @@
+     &quot;assignee&quot;: &quot;VLK2021&quot;
+   }
+ }</component>
+-  <component name="GithubDefaultAccount">
+-    <option name="defaultAccountId" value="8a6e3ebe-e7f5-4745-9191-69db6b14fde5" />
+-  </component>
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/VLK2021/node2024.git&quot;,
+@@ -56,6 +53,7 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
+     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+@@ -69,7 +67,7 @@
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_interpreter_path": "node",
+     "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "configurable.group.appearance",
++    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+     "vue.rearranger.settings.migration": "true"
+   }
+@@ -91,6 +89,8 @@
+       <updated>1737575470625</updated>
+       <workItem from="1737575471467" duration="2389000" />
+       <workItem from="1737754865552" duration="1040000" />
++      <workItem from="1737756448242" duration="2164000" />
++      <workItem from="1737758619689" duration="1129000" />
+     </task>
+     <task id="LOCAL-00001" summary="commit">
+       <option name="closed" value="true" />
+@@ -100,13 +100,30 @@
+       <option name="project" value="LOCAL" />
+       <updated>1737577464993</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="commit">
++      <option name="closed" value="true" />
++      <created>1737758353221</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1737758353221</updated>
++    </task>
++    <task id="LOCAL-00003" summary="commit">
++      <option name="closed" value="true" />
++      <created>1737758421565</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1737758421565</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="commit" />
+     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+   </component>
