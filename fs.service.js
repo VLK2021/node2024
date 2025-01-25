@@ -8,7 +8,6 @@ module.exports = {
         const json = await fs.readFile(pathToDb, 'utf-8');
         return json ? JSON.parse(json) : [];
     },
-
     write: async (users) => {
         await fs.writeFile(pathToDb, JSON.stringify(users));
     }
