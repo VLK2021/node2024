@@ -1,6 +1,7 @@
-.idea
-.env
+.idea/
+
+.env/
 
 node_modules/
 
-dist
+dist/
