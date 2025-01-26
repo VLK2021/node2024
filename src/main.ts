@@ -1,5 +1,5 @@
-const express = require('express');
-const {read, write} = require("./fs.service");
+import express from "express";
+import {fsService} from "./fs.service";
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true}))
 
 app.get('/users', async (req, res) => {
     try {
-        const users = await read();
+        const users = await fsService.read();
         res.json(users);
     } catch (e) {
         res.status(500).json(e.message);
@@ -32,7 +32,7 @@ app.post('/users', async (req, res) => {
             return res.status(400).json('Password is required and should be at least 6 characters')
         }
 
-        const users = await read();
+        const users = await fsService.read();
         const index = users.findIndex((user) => user.email === email)
         if (index !== -1) {
             return res.status(409).json('User with this email already exists')
@@ -45,7 +45,7 @@ app.post('/users', async (req, res) => {
             password
         }
         users.push(newUser);
-        await write(users);
+        await fsService.write(users);
 
         res.status(201).json(newUser);
     } catch (e) {
@@ -57,7 +57,7 @@ app.get('/users/:userId', async (req, res) => {
     try {
         const userId = Number(req.params.userId);
 
-        const users = await read();
+        const users = await fsService.read();
         const user = users.find(user => user.id === userId);
         if (!user) {
             return res.status(404).json('User not found');
@@ -73,7 +73,7 @@ app.put('/users/:userId', async (req, res) => {
         const userId = Number(req.params.userId);
         const {name, email, password} = req.body;
 
-        const users = await read();
+        const users = await fsService.read();
         const user = users.find(user => user.id === userId);
         if (!user) {
             return res.status(404).json('User not found')
@@ -83,7 +83,7 @@ app.put('/users/:userId', async (req, res) => {
         if (email) user.email = email;
         if (password) user.password = password;
 
-        await write(users);
+        await fsService.write(users);
 
         res.status(201).json(user);
     } catch (e) {
@@ -95,13 +95,13 @@ app.delete('/users/:userId', async (req, res) => {
     try {
         const userId = Number(req.params.userId);
 
-        const users = await read();
+        const users = await fsService.read();
         const index = users.findIndex(user => user.id === userId);
         if (index === -1) {
             return res.status(404).json('User not found')
         }
         users.splice(index, 1);
-        await write(users);
+        await fsService.write(users);
 
         res.sendStatus(204);
     } catch (e) {
