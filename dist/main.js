@@ -8,7 +8,7 @@ const fs_service_1 = require("./fs.service");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.get('/users', async (req, res) => {
+app.get("/users", async (req, res) => {
     try {
         const users = await fs_service_1.fsService.read();
         res.json(users);
@@ -17,28 +17,32 @@ app.get('/users', async (req, res) => {
         res.status(500).json(e.message);
     }
 });
-app.post('/users', async (req, res) => {
+app.post("/users", async (req, res) => {
     try {
         const { name, email, password } = req.body;
         if (!name || name.length < 3) {
-            return res.status(400).json('Name is required and should be at least 3 characters');
+            return res
+                .status(400)
+                .json("Name is required and should be at least 3 characters");
         }
-        if (!email || !email.includes('@')) {
-            return res.status(400).json('Email is required and should be valid');
+        if (!email || !email.includes("@")) {
+            return res.status(400).json("Email is required and should be valid");
         }
         if (!password || password.length < 6) {
-            return res.status(400).json('Password is required and should be at least 6 characters');
+            return res
+                .status(400)
+                .json("Password is required and should be at least 6 characters");
         }
         const users = await fs_service_1.fsService.read();
         const index = users.findIndex((user) => user.email === email);
         if (index !== -1) {
-            return res.status(409).json('User with this email already exists');
+            return res.status(409).json("User with this email already exists");
         }
         const newUser = {
             id: users[users.length - 1].id + 1,
             name,
             email,
-            password
+            password,
         };
         users.push(newUser);
         await fs_service_1.fsService.write(users);
@@ -48,13 +52,13 @@ app.post('/users', async (req, res) => {
         res.status(500).json(e.message);
     }
 });
-app.get('/users/:userId', async (req, res) => {
+app.get("/users/:userId", async (req, res) => {
     try {
         const userId = Number(req.params.userId);
         const users = await fs_service_1.fsService.read();
-        const user = users.find(user => user.id === userId);
+        const user = users.find((user) => user.id === userId);
         if (!user) {
-            return res.status(404).json('User not found');
+            return res.status(404).json("User not found");
         }
         res.json(user);
     }
@@ -62,14 +66,14 @@ app.get('/users/:userId', async (req, res) => {
         res.status(500).json(e.message);
     }
 });
-app.put('/users/:userId', async (req, res) => {
+app.put("/users/:userId", async (req, res) => {
     try {
         const userId = Number(req.params.userId);
         const { name, email, password } = req.body;
         const users = await fs_service_1.fsService.read();
-        const user = users.find(user => user.id === userId);
+        const user = users.find((user) => user.id === userId);
         if (!user) {
-            return res.status(404).json('User not found');
+            return res.status(404).json("User not found");
         }
         if (name)
             user.name = name;
@@ -84,13 +88,13 @@ app.put('/users/:userId', async (req, res) => {
         res.status(500).json(e.message);
     }
 });
-app.delete('/users/:userId', async (req, res) => {
+app.delete("/users/:userId", async (req, res) => {
     try {
         const userId = Number(req.params.userId);
         const users = await fs_service_1.fsService.read();
-        const index = users.findIndex(user => user.id === userId);
+        const index = users.findIndex((user) => user.id === userId);
         if (index === -1) {
-            return res.status(404).json('User not found');
+            return res.status(404).json("User not found");
         }
         users.splice(index, 1);
         await fs_service_1.fsService.write(users);
@@ -101,5 +105,5 @@ app.delete('/users/:userId', async (req, res) => {
     }
 });
 app.listen(3000, () => {
-    console.log('Server is runing on port 3000!');
+    console.log("Server is runing on port 3000!");
 });
