@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fs_service_1 = require("./fs.service");
+const api_error_1 = require("./errors/api-error");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
@@ -17,26 +18,22 @@ app.get("/users", async (req, res) => {
         res.status(500).json(e.message);
     }
 });
-app.post("/users", async (req, res) => {
+app.post("/users", async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
         if (!name || name.length < 3) {
-            return res
-                .status(400)
-                .json("Name is required and should be at least 3 characters");
+            throw new api_error_1.ApiError("Name is required and should be at least 3 characters", 400);
         }
         if (!email || !email.includes("@")) {
             return res.status(400).json("Email is required and should be valid");
         }
         if (!password || password.length < 6) {
-            return res
-                .status(400)
-                .json("Password is required and should be at least 6 characters");
+            throw new api_error_1.ApiError("Password is requaired and should be at least 6 characters", 400);
         }
         const users = await fs_service_1.fsService.read();
         const index = users.findIndex((user) => user.email === email);
         if (index !== -1) {
-            return res.status(409).json("User with this email already exists");
+            throw new api_error_1.ApiError("User with this email already exists", 409);
         }
         const newUser = {
             id: users[users.length - 1].id + 1,
@@ -49,7 +46,7 @@ app.post("/users", async (req, res) => {
         res.status(201).json(newUser);
     }
     catch (e) {
-        res.status(500).json(e.message);
+        next(e);
     }
 });
 app.get("/users/:userId", async (req, res) => {
@@ -103,6 +100,13 @@ app.delete("/users/:userId", async (req, res) => {
     catch (e) {
         res.status(500).json(e.message);
     }
+});
+app.use("*", (err, req, res, next) => {
+    res.status(err.status || 500).json(err.message);
+});
+process.on("uncaughtException", (e) => {
+    console.error("uncaughtException", e.message, e.stack);
+    process.exit(1);
 });
 app.listen(3000, () => {
     console.log("Server is runing on port 3000!");
