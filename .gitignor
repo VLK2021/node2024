@@ -1,7 +1,9 @@
-.idea/
+
 
 .env/
 
 node_modules/
+.idea/
+
 
 dist/
