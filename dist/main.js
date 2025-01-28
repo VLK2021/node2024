@@ -5,50 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fs_service_1 = require("./fs.service");
-const api_error_1 = require("./errors/api-error");
+const user_router_1 = require("./routes/user.router");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.get("/users", async (req, res) => {
-    try {
-        const users = await fs_service_1.fsService.read();
-        res.json(users);
-    }
-    catch (e) {
-        res.status(500).json(e.message);
-    }
-});
-app.post("/users", async (req, res, next) => {
-    try {
-        const { name, email, password } = req.body;
-        if (!name || name.length < 3) {
-            throw new api_error_1.ApiError("Name is required and should be at least 3 characters", 400);
-        }
-        if (!email || !email.includes("@")) {
-            return res.status(400).json("Email is required and should be valid");
-        }
-        if (!password || password.length < 6) {
-            throw new api_error_1.ApiError("Password is requaired and should be at least 6 characters", 400);
-        }
-        const users = await fs_service_1.fsService.read();
-        const index = users.findIndex((user) => user.email === email);
-        if (index !== -1) {
-            throw new api_error_1.ApiError("User with this email already exists", 409);
-        }
-        const newUser = {
-            id: users[users.length - 1].id + 1,
-            name,
-            email,
-            password,
-        };
-        users.push(newUser);
-        await fs_service_1.fsService.write(users);
-        res.status(201).json(newUser);
-    }
-    catch (e) {
-        next(e);
-    }
-});
+app.use("/users", user_router_1.userRouter);
 app.get("/users/:userId", async (req, res) => {
     try {
         const userId = Number(req.params.userId);
@@ -109,5 +70,5 @@ process.on("uncaughtException", (e) => {
     process.exit(1);
 });
 app.listen(3000, () => {
-    console.log("Server is runing on port 3000!");
+    console.log("Server is running on port 3000!");
 });
