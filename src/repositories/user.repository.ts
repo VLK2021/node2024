@@ -11,7 +11,7 @@ class UserRepository {
     const users = await fsService.read();
     const index = users.findIndex((user) => user.email === dto.email);
     if (index !== -1) {
-      throw new ApiError("User with this email already exists", 409);
+      throw new ApiError("User with this email already exists!", 409);
     }
     const newUser = {
       id: users[users.length - 1].id + 1,
