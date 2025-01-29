@@ -20,5 +20,14 @@ class UserService {
         }
         return await user_repository_1.userRepository.create(dto);
     }
+    async getById(userId) {
+        return await user_repository_1.userRepository.getById(userId);
+    }
+    async delete(userId) {
+        return await user_repository_1.userRepository.delete(userId);
+    }
+    async update(userId, dto) {
+        return await user_repository_1.userRepository.updateById(userId, dto);
+    }
 }
 exports.userService = new UserService();

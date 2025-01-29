@@ -6,4 +6,7 @@ const user_controller_1 = require("../controlers/user.controller");
 const router = (0, express_1.Router)();
 router.get("/", user_controller_1.userController.getList);
 router.post("/", user_controller_1.userController.create);
+router.get("/:userId", user_controller_1.userController.getById);
+router.delete("/:userId", user_controller_1.userController.delete);
+router.put("/:userId", user_controller_1.userController.update);
 exports.userRouter = router;
