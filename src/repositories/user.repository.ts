@@ -47,7 +47,7 @@ class UserRepository {
     const users = await fsService.read();
     const user = users.find((user) => user.id === userId);
     if (!user) {
-      throw new ApiError("User not found", 422);
+      throw new ApiError("User not found!", 422);
     }
     if (dto.name) user.name = dto.name;
     if (dto.email) user.email = dto.email;
