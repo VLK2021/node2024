@@ -28,12 +28,12 @@ class UserService {
     return await userRepository.create(dto);
   }
 
-  public async getById(userId: number): Promise<IUser> {
+  public async getById(userId: string): Promise<IUser> {
     return await userRepository.getById(userId);
   }
 
   public async delete(userId: number): Promise<void> {
-    return await userRepository.delete(userId);
+    return await userRepository.deleteById(userId);
   }
 
   public async update(userId: number, dto: IUser): Promise<IUser> {

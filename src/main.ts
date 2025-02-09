@@ -1,10 +1,11 @@
 import express, { NextFunction, Request, Response } from "express";
+import * as mongoose from "mongoose";
 
+import { configs } from "./configs/configs";
 import { ApiError } from "./errors/api-error";
 import { userRouter } from "./routes/user.router";
 
 const app = express();
-const PORT = 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +24,7 @@ process.on("uncaughtException", (e) => {
   process.exit(1);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}!`);
+app.listen(configs.APP_PORT, configs.APP_HOST, async () => {
+  await mongoose.connect(configs.MONGO_URL);
+  console.log(`Server is running on port ${configs.APP_PORT}`);
 });

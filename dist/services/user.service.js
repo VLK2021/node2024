@@ -24,7 +24,7 @@ class UserService {
         return await user_repository_1.userRepository.getById(userId);
     }
     async delete(userId) {
-        return await user_repository_1.userRepository.delete(userId);
+        return await user_repository_1.userRepository.deleteById(userId);
     }
     async update(userId, dto) {
         return await user_repository_1.userRepository.updateById(userId, dto);

@@ -1,59 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRepository = void 0;
-const api_error_1 = require("../errors/api-error");
-const fs_service_1 = require("../fs.service");
+const user_model_1 = require("../models/user.model");
 class UserRepository {
     async getList() {
-        return await fs_service_1.fsService.read();
+        const arr = await user_model_1.User.find();
+        console.log(arr);
+        return arr;
     }
     async create(dto) {
-        const users = await fs_service_1.fsService.read();
-        const index = users.findIndex((user) => user.email === dto.email);
-        if (index !== -1) {
-            throw new api_error_1.ApiError("User with this email already exists", 409);
-        }
-        const newUser = {
-            id: users[users.length - 1].id + 1,
-            name: dto.name,
-            email: dto.email,
-            password: dto.password,
-        };
-        users.push(newUser);
-        await fs_service_1.fsService.write(users);
-        return newUser;
+        return await user_model_1.User.create(dto);
     }
     async getById(userId) {
-        const users = await fs_service_1.fsService.read();
-        const user = users.find((user) => user.id === userId);
-        if (!user) {
-            throw new api_error_1.ApiError("User with this email already exists", 409);
-        }
-        return user;
-    }
-    async delete(userId) {
-        const users = await fs_service_1.fsService.read();
-        const index = users.findIndex((user) => user.id === userId);
-        if (index === -1) {
-            throw new api_error_1.ApiError("error", 409);
-        }
-        users.splice(index, 1);
-        return await fs_service_1.fsService.write(users);
+        return await user_model_1.User.findById(userId);
     }
     async updateById(userId, dto) {
-        const users = await fs_service_1.fsService.read();
-        const user = users.find((user) => user.id === userId);
-        if (!user) {
-            throw new api_error_1.ApiError("User not found", 422);
-        }
-        if (dto.name)
-            user.name = dto.name;
-        if (dto.email)
-            user.email = dto.email;
-        if (dto.password)
-            user.password = dto.password;
-        await fs_service_1.fsService.write(users);
-        return user;
+    }
+    async deleteById(userId) {
     }
 }
 exports.userRepository = new UserRepository();
