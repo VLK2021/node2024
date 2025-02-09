@@ -13,6 +13,7 @@ router.get(
   commonMiddleware.isIdValid("userId"),
   userController.getById,
 );
+
 router.delete(
   "/:userId",
   commonMiddleware.isIdValid("userId"),
