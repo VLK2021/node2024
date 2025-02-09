@@ -18,6 +18,7 @@ router.delete(
   commonMiddleware.isIdValid("userId"),
   userController.delete,
 );
+
 router.put(
   "/:userId",
   commonMiddleware.isIdValid("userId"),
