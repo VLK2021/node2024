@@ -25,6 +25,7 @@ class UserService {
         400,
       );
     }
+    await this.isEmailExist(email);
     return await userRepository.create(dto);
   }
 
@@ -32,12 +33,19 @@ class UserService {
     return await userRepository.getById(userId);
   }
 
-  public async delete(userId: number): Promise<void> {
+  public async delete(userId: string): Promise<void> {
     return await userRepository.deleteById(userId);
   }
 
-  public async update(userId: number, dto: IUser): Promise<IUser> {
+  public async update(userId: string, dto: IUser): Promise<IUser> {
     return await userRepository.updateById(userId, dto);
+  }
+
+  private async isEmailExist(email: string): Promise<void> {
+    const user = await userRepository.getByParams({ email });
+    if (user) {
+      throw new ApiError("Email already exist", 409);
+    }
   }
 }
 
